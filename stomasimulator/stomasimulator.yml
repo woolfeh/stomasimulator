@@ -1,0 +1,3 @@
+---
+febio-exe: /usr/local/bin/febio/FEBio2
+model-data-dir: .cfg

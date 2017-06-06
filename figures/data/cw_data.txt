@@ -1,0 +1,21 @@
+
+# To get the significance letters use
+# > cld( lsmeans(aov_result, ~genotype), Letters="abcdef", alpha = 0.05 )
+# in the R script.
+
+# initial
+
+genotype	aperture   se      group    label
+cw1 	    0.908      0.083   a        Col-0
+cw16	    1.425      0.186   ab       irx8
+cw17	    0.946      0.087   a        pmr5
+cw18	    0.970      0.143   a        pmr6
+
+
+# final
+
+genotype    aperture    se      group
+cw1         1.976       0.119   bc
+cw16        2.199       0.177   c
+cw17        2.165       0.157   c
+cw18        2.524       0.261   c

@@ -1,0 +1,154 @@
+---
+observation:
+    spence1986-large:
+        # From Spence et al. (1986)
+        closed:
+            stoma-length : 45.0     # p. 200 / column 1
+            pore-length  : 17.0     # p. 199 / column 2
+            pore-width   :  2.0     # p. 199 / column 2
+            gc-width     : 15.0     # Figure 1B
+        open:
+            stoma-length : 47.0
+            pore-length  : 22.0
+            pore-width   : 12.5
+            gc-width     : 15.0
+
+model:
+    vicia-baseline-model:
+        observation: spence1986-large
+        geometry:
+            aspect-ratio    :  1.0  # assumed
+            cwt-dorsal      :  1.0  # assumed
+            cwt-ventral     :  1.0  # assumed
+            cwt-periclinal  :  1.0  # assumed
+            cwt-tip         :  0.3  # from Meckel et al. 2007 (p. 1073)
+
+    vicia-example:
+        ref-model: vicia-baseline-model
+        material:
+            MR:   { c1: 9.0, c2: 9.0 }
+            tiMR: { c1: 9.0, c2: 9.0, c5: 1000.0, lm: 1.0 }
+
+    vicia-example-epi-p:
+        ref-model: vicia-example
+        pressure:
+            epidermis: { max: 0.5 }
+
+    vicia-example-thicker:
+        ref-model: vicia-example
+        geometry:
+            cwt-dorsal     : 2.0
+            cwt-ventral    : 2.0
+            cwt-periclinal : 2.0
+
+    vicia-example-thicker-ventral:
+        ref-model: vicia-example
+        geometry:
+            cwt-ventral: 2.0
+
+    vicia-example-ar-gt-1:
+        ref-model: vicia-example
+        geometry:
+            aspect-ratio: 1.25
+
+    vicia-example-ar-lt-1:
+        ref-model: vicia-example
+        geometry:
+            aspect-ratio: 0.8
+
+    vicia-optimised:
+        ref-model: vicia-baseline-model
+        material:
+            # optimisation results
+
+            tiMR: { c1: 4.4545813592, c2: 4.47794837642, c5: 1169.64983031, lm: 1.0 }
+            # G0 = 17.86505947124
+            #
+            # Stoma length : 50.53815079  ( 7.52798000)
+            # Pore length  : 22.19976664  ( 0.90803000)
+            # Aperture     : 12.18320370  (-2.53437000)
+            # GC width     : 15.32563591  ( 2.17090600)
+
+            tiVW: { c1: 2.75794003603, c2: 1.61216189018, c5: 2320.3546617, lm: 1.0 }
+            # G0 = 4.44624582148
+            #
+            # Stoma length : 51.59926271  ( 9.78566500)
+            # Pore length  : 22.43971157  ( 1.99868900)
+            # Aperture     : 12.11860085  (-3.05119300)
+            # GC width     : 15.41188002  ( 2.74586700)
+
+            # The tiVW parameters but with no fibres!
+            VW: { c1: 2.75794003603, c2: 1.61216189018 }
+
+    vicia-lm-1.01:
+        ref-model: vicia-optimised
+        material:
+            tiVW: { c1: 2.75794003603, c2: 1.61216189018, c5: 2320.3546617, lm: 1.01 }
+
+    vicia-lm-1.05:
+        ref-model: vicia-optimised
+        material:
+            tiVW: { c1: 2.75794003603, c2: 1.61216189018, c5: 2320.3546617, lm: 1.05 }
+
+    vicia-lm-1.1:
+        ref-model: vicia-optimised
+        material:
+            tiVW: { c1: 2.75794003603, c2: 1.61216189018, c5: 2320.3546617, lm: 1.1 }
+
+    vicia-lm-1.2:
+        ref-model: vicia-optimised
+        material:
+            tiVW: { c1: 2.75794003603, c2: 1.61216189018, c5: 2320.3546617, lm: 1.2 }
+
+
+    # Configs. for Carter, Woolfenden et al.
+
+    spence1986-large-1um-with-epi-p:
+        ref-model: vicia-optimised
+        pressure:
+            epidermis: { max: 0.5 }
+
+    spence1986-large-1um-with-epi-p-rounded-triangle:
+        ref-model : spence1986-large-1um-with-epi-p
+        geometry:
+            cwt-thicken-vp  : Yes     # to make cross-section a rounded triangle
+
+    spence1986-large-1um-with-epi-p-thicker:
+        ref-model: spence1986-large-1um-with-epi-p
+        geometry:
+            cwt-ventral: 1.1
+
+    spence1986-large-1um-with-epi-p-thinner:
+        ref-model: spence1986-large-1um-with-epi-p
+        geometry:
+            cwt-ventral: 0.9
+
+    spence1986-large-1um-with-epi-p-rounded-thicker:
+        ref-model: spence1986-large-1um-with-epi-p-rounded-triangle
+        geometry:
+            cwt-ventral: 1.1
+
+    spence1986-large-1um-with-epi-p-rounded-thinner:
+        ref-model: spence1986-large-1um-with-epi-p-rounded-triangle
+        geometry:
+            cwt-ventral: 0.9
+
+    # End of configs. for Carter, Woolfenden et al.
+
+pressure:
+    # initial pressure is zero
+    stoma: { max: 5.0 }
+
+
+optimisation:
+    keys:
+        # these values will be used if a material parameter optimisation is performed
+        - stoma-length
+        - pore-length
+        - pore-width
+        - gc-width
+    aliases:
+        gc-width: gc0-width
+
+notes: |
+...

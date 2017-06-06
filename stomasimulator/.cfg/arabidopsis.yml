@@ -1,0 +1,156 @@
+---
+observation:
+    # Exclude stomata that do not respond to fusicoccin and that have a missing geometrical measurement
+
+    ath-cw1:
+        closed:
+            stoma-length: 29.899
+            pore-length:   9.379
+            pore-width:    0.908
+            gc-width:      9.888
+        open:
+            stoma-length: 29.825
+            pore-length:   9.379
+            pore-width:    1.976
+            gc-width:     10.419
+
+    ath-cw16:
+        closed:
+            stoma-length: 30.419
+            pore-length:  11.493
+            pore-width:    1.425
+            gc-width:     10.012
+        open:
+            stoma-length: 29.934
+            pore-length:  11.493
+            pore-width:    2.199
+            gc-width:     10.468
+
+    ath-cw17:
+        closed:
+            stoma-length: 29.645
+            pore-length:  10.584
+            pore-width:    0.946
+            gc-width:     10.001
+        open:
+            stoma-length: 30.032
+            pore-length:  10.584
+            pore-width:    2.165
+            gc-width:     10.325
+
+    ath-cw18:
+        closed:
+            stoma-length: 28.375
+            pore-length:  11.143
+            pore-width:    0.970
+            gc-width:     11.008
+        open:
+            stoma-length: 29.402
+            pore-length:  11.143
+            pore-width:    2.524
+            gc-width:     11.223
+
+model:
+    ath-cw1:
+        observation: ath-cw1
+        geometry:
+            aspect-ratio: 1.0
+            cwt-dorsal: 0.5
+            cwt-ventral: 0.5
+            cwt-periclinal: 0.5
+            cwt-tip: 0.1
+        material:
+            tiVW: { c1: 1.5491611237, c2: 21.2752257936, c5: 600.602622641, lm: 1.0 }
+            # G0: 32.9587526973
+            #
+            # Stoma length : 30.52546209  ( 2.34857400)
+            # Pore length  :  9.42910346  ( 0.53420900)
+            # Aperture     :  1.97435570  (-0.08321400)
+            # GC width     : 10.29527587  (-1.18748600)
+
+
+    ath-cw16:
+        observation: ath-cw16
+        geometry:
+            aspect-ratio: 1.0
+            cwt-dorsal: 0.5
+            cwt-ventral: 0.5
+            cwt-periclinal: 0.5
+            cwt-tip: 0.1
+        material:
+            tiVW: { c1: 0.983790939389, c2: 48.875216131, c5: 713.589132166, lm: 1.0 }
+            # G0: 48.082994790356
+            #
+            # Stoma length : 30.73591492  ( 2.67894300)
+            # Pore length  : 11.51911469  ( 0.22722300)
+            # Aperture     :  2.19653928  (-0.11190200)
+            # GC width     : 10.30169779  (-1.58867200)
+
+
+    ath-cw17:
+        observation: ath-cw17
+        geometry:
+            aspect-ratio: 1.0
+            cwt-dorsal: 0.5
+            cwt-ventral: 0.5
+            cwt-periclinal: 0.5
+            cwt-tip: 0.1
+        material:
+            tiVW: { c1: 1.52420651113, c2: 20.0539921224, c5: 600.817940092, lm: 1.0 }
+            # G0: 30.56642536711
+            #
+            # Stoma length : 30.28291905  ( 0.83550600)
+            # Pore length  : 10.71337479  ( 1.22236200)
+            # Aperture     :  2.16374254  (-0.05808100)
+            # GC width     : 10.42601907  ( 0.97839300)
+
+
+    ath-cw18:
+        observation: ath-cw18
+        geometry:
+            aspect-ratio: 1.0
+            cwt-dorsal: 0.5
+            cwt-ventral: 0.5
+            cwt-periclinal: 0.5
+            cwt-tip: 0.1
+        material:
+            tiVW: { c1: 0.986608241058, c2: 19.9951242863, c5: 704.684395112, lm: 1.0 }
+            # G0: 19.727354401842
+            #
+            # Stoma length : 29.16529077  (-0.80507900)
+            # Pore length  : 11.44495037  ( 2.70977600)
+            # Aperture     :  2.52000880  (-0.15813000)
+            # GC width     : 11.52502847  ( 2.69115600)
+
+
+pressure:
+    # initial pressure is zero and it is not configurable
+    stoma: { max: 5.0 }
+
+
+optimisation:
+    # Above results obtained using SLSQP with tol=1e-4 and eps=0.001
+    keys:
+        # these values will be used if a material parameter optimisation is performed
+        - stoma-length
+        - pore-length
+        - pore-width
+        - gc-width
+    aliases:
+        gc-width: gc0-width
+
+
+notes: |
+    Experimental protocol created my Michaela Kopischke
+    Experiments performed by Gildas Bourdais.
+    Measurements taken by Gildas Bourdais (pore width) and Hugh Woolfenden (pore length,
+    stoma length, guard cell width)
+    Pore length of a closed stoma is set to the length of an open stoma.
+
+    The stomata labels, ath-cw1, ath-cw16, ath-cw17 and ath-cw18 correspond to
+    Col-0, irx8, pmr5 and pmr6, respec.
+
+    Wall thickness of 0.5um is in the range quoted by Forouzesh et al. (2013)
+
+    Tip wall thickness of 0.1um estimated from Akita et al (2016) [Fig 2(d)]
+...

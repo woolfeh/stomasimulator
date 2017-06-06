@@ -1,0 +1,45 @@
+# Data extracted from images in Franks et al. (2001), "Guard cell volume and pressure measured concurrently..."
+#
+# Note: half-aperture is *not* half the aperture but rather the aperture when only one guard cell
+#       is inflated by the pressure probe.
+#
+
+# Cell A (only one guard cell inflated)
+pressure  half-aperture  gc-volume
+0.3  3.08  4971.80
+0.6  4.75  5221.33
+1.0  5.48  5520.19
+1.5  6.79  5726.21
+2.0  7.30  5935.12
+2.5  8.18  6083.10
+3.0  8.82  6173.05
+3.5  9.59  6204.97
+4.0  10.22  6295.40
+4.5  10.47  6348.60
+
+
+# Cell B (only one guard cell inflated)
+pressure  half-aperture  gc-volume
+1.0  1.64  3996.66
+1.5  2.79  4374.58
+2.0  3.29  4618.73
+2.5  3.54  4729.10
+3.0  4.33  4749.16
+3.5  6.49  5076.92
+4.0  8.42  5170.57
+4.5  9.19  5257.53
+5.0  9.56  5501.67
+
+
+# Cell C (** both guard cells inflated **)
+pressure  half-aperture  gc-volume
+0.5  0.50  3702.34
+1.0  1.91  3993.31
+1.5  2.04  4464.88
+2.0  2.68  4508.36
+2.5  2.93  4732.44
+3.0  3.20  4869.57
+3.5  3.71  4949.83
+4.0  4.10  5120.40
+4.5  4.60  5207.36
+5.0  4.86  5267.56
