@@ -42,6 +42,7 @@ This step is only required if you are going to rerun the simulations.
 Download and install the [FEBio](http://www.febio.org) finite element software (v2.3.0 was used).
 
 Update the path to the executable in the `stomasimulator.yml` file at the top level of the `stomasimulator` package.
+You will have to run `python setup.py install` again. 
 
 See [Maas *et al.* (2012)](http://dx.doi.org/10.1115/1.4005694) for details of FEBio.
  

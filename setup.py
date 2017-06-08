@@ -15,6 +15,7 @@ config = {
     'version': '0.1.0',
     'scripts': ['bin/stomasimulator'],
     'license': open('LICENSE').read(),
+    'include_package_data': True
 }
 
 setup(**config)

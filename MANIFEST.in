@@ -1,0 +1,2 @@
+include stomasimulator/stomasimulator.yml
+include stomasimulator/.cfg/*.yml
