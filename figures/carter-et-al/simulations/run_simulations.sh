@@ -4,8 +4,7 @@
 # - the FEBIO variable below is set to the location of the FEBio executable
 # - the Python environment for 'stomasimulator' is active
 
-#FEBIO=<path/to/febio>/FEBio2
-FEBIO=${HOME}/Applications/febio-apps/febio/current/bin/FEBio2
+FEBIO=<path/to/febio>/FEBio2
 
 echo "Running the simulations..."
 
